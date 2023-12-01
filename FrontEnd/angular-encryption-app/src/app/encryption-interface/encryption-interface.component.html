@@ -1,0 +1,21 @@
+<div class="encryption-interface">
+  <div class="title">
+    Cifrado y Descifrado de Datos con PyCuda
+  </div>
+  <!-- Solo se utiliza un label que actúa como botón -->
+  <label for="fileInput" class="file-upload-label">Seleccionar archivo</label>
+  <input type="file" id="fileInput" (change)="onFileSelected($event)" style="display: none;">
+  
+  <textarea id="inputText" placeholder="El contenido del archivo aparecerá aquí..." [(ngModel)]="fileContent"></textarea>
+  <div class="buttons-container">
+    <button (click)="encrypt('RSA')">RSA</button>
+    <button (click)="encrypt('AES')">AES</button>
+    <button (click)="decrypt('RSA')">Desencriptar RSA</button>
+    <button (click)="decrypt('AES')">Desencriptar AES</button>
+  </div>
+  <textarea id="outputText" placeholder="Texto encriptado/desencriptado..." [(ngModel)]="encryptedDecryptedContent"></textarea>
+  <div class="file-download">
+    <a [href]="downloadUrl" download="encrypted_file.txt" (click)="clearTextAreas()">Descargar archivo</a>
+
+  </div>
+</div>
